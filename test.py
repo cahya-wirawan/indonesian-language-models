@@ -12,6 +12,8 @@ _, _, _, indexToString, stringToIndex, _ = load_data()
 
 model = load_model(os.path.join(os.getcwd(), 'model', 'model-100.h5'))
 
+for layer in model.layers:
+    print(layer, layer.trainable)
 
 def predict_next_word(string, verbose=True, NUMBER_OF_PREDICTIONS=10):
   ques_bool = False
@@ -111,17 +113,7 @@ def indexes_to_string(array_of_indexes, ques_bool):
 
 
 while True:
-  #sentences = predict_next_word(string=input('\n\nEnter atleast 3 words: \n'),
-  #                              NUMBER_OF_PREDICTIONS=10)
   string=input('\n\nEnter atleast 3 words: \n')
   (sentences, probability) = beamsearch(get_next_word, string.split(" "))
   print()
   print("prob: {}, sentence: {}".format(probability, sentences))
-"""
-  print('\n')
-  if sentences != None:
-    count = 0
-    for sentence in sentences:
-      count += 1
-      print(count, '-', sentence)
-"""
