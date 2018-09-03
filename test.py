@@ -3,6 +3,7 @@ import os
 from numpy import argmax
 from tensorflow.keras import metrics
 from tensorflow.keras.models import load_model
+from keras_model import perplexity
 
 import CONFIG
 from utils import BatchGenerator, load_data, beamsearch
@@ -10,7 +11,8 @@ from utils import BatchGenerator, load_data, beamsearch
 _, _, _, indexToString, stringToIndex, _ = load_data()
 
 
-model = load_model(os.path.join(os.getcwd(), 'model', 'model-100.h5'))
+model = load_model(os.path.join(os.getcwd(), 'model', 'model-100.h5'),
+                   custom_objects={'perplexity': perplexity})
 
 for layer in model.layers:
     print(layer, layer.trainable)

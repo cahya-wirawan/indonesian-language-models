@@ -95,7 +95,8 @@ class Beam(object):
     def __iter__(self):
         return iter(self.heap)
 
-def beamsearch(probabilities_function, string=None, beam_width=20, clip_len=-1):
+def beamsearch(probabilities_function, string=None, beam_width=5, clip_len=8):
+    string_len = len(string)
     prev_beam = Beam(beam_width)
     prev_beam.add(0.0, False, string)
     depth = 0
@@ -111,7 +112,7 @@ def beamsearch(probabilities_function, string=None, beam_width=20, clip_len=-1):
                 #Get probability of each possible next word for the incomplete prefix.
                 result = probabilities_function(prefix)
                 print("prefix: {}".format(prefix))
-                print("result: {}".format(result))
+                # print("result: {}".format(result))
                 for (next_prob, next_word) in result:
                     if next_word == '<eos>':
                         #if next word is the end token then mark prefix as complete and leave out the end token
@@ -120,8 +121,11 @@ def beamsearch(probabilities_function, string=None, beam_width=20, clip_len=-1):
                         curr_beam.add(prefix_prob + math.log10(next_prob), False, prefix+[next_word])
 
         (best_prob, best_complete, best_prefix) = max(curr_beam)
+        print("dept: {}, length: {}, clip_len: {}".format(depth, len(best_prefix), clip_len))
+
         #if best_complete == True or len(best_prefix)-1 == clip_len:
-        if depth >= 6 and best_complete == True:
+        if ((depth >= 6) and best_complete and (len(best_prefix) != string_len)) \
+                or depth == clip_len:
             # if most probable prefix is a complete sentence or has a length that
             # exceeds the clip length (ignoring the start token) then return it
             print("depth: {}".format(depth))
