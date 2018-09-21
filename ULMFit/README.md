@@ -3,7 +3,7 @@ State-of-the-Art Language Modeling in Indonesian created with [ULMFit](https://a
 implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
 
 The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz)
-We provide state-of-the-art language modeling (perplexity of 38.78 on Indoenesian wikipedia). We will try to
+We provide state-of-the-art language modeling (perplexity of 38.78 on Indonesian Wikipedia). We will try to
 improve it with more training time since the curve for validation loss still have good trend toward lower loss.
 
 Due to some difficulties to find curated and publicly available dataset for indonesian text, we can't 
@@ -50,29 +50,55 @@ We tested our language model to generate sentences using some strings seeds:
 - "ibukota rusia adalah",
 - "australia terletak"
  
-And the results are quite interesting:
+And the results (and its translation using google) are quite interesting:
 
 - jika ibu bersedih sepanjang hari, maka akan terjadi bencana alam yang hebat. 
+_(if the mother grieves all day, there will be a great natural disaster.)_
 
-- orang baduy adalah orang - orang yang memiliki kemampuan untuk berbicara dengan orang - orang yang tidak memiliki bahasa. mereka juga memiliki kemampuan untuk berbicara dengan orang lain, dan mereka dapat berbicara dalam bahasa yang berbeda. 
+- orang baduy adalah orang - orang yang memiliki kemampuan untuk berbicara dengan orang - orang yang tidak memiliki 
+bahasa. mereka juga memiliki kemampuan untuk berbicara dengan orang lain, dan mereka dapat berbicara dalam bahasa 
+yang berbeda. _(Baduy people are people who have the ability to talk to people who do not have language. they also 
+have the ability to talk with other people, and they can speak in different languages.)_
 
-- presiden soekarno adalah seorang yang sangat terkenal di indonesia. ia adalah seorang yang sangat cerdas dan memiliki kemampuan untuk menguasai dunia. ia juga memiliki kemampuan untuk menciptakan dan menciptakan sebuah sistem yang dapat digunakan untuk melakukan tugas - tugas yang bersifat khusus. ia juga memiliki kemampuan untuk menciptakan dan mengendalikan berbagai macam bentuk dan kemampuan untuk melakukan hal - hal yang tidak diinginkan. ia juga memiliki kemampuan untuk menciptakan dan mengendalikan sebuah sistem yang dapat mengubah dirinya menjadi sebuah 
+- presiden soekarno adalah seorang yang sangat terkenal di indonesia. ia adalah seorang yang sangat cerdas dan 
+memiliki kemampuan untuk menguasai dunia. ia juga memiliki kemampuan untuk menciptakan dan menciptakan sebuah sistem 
+yang dapat digunakan untuk melakukan tugas - tugas yang bersifat khusus. ia juga memiliki kemampuan untuk menciptakan 
+dan mengendalikan berbagai macam bentuk dan kemampuan untuk melakukan hal - hal yang tidak diinginkan. ia juga 
+memiliki kemampuan untuk menciptakan dan mengendalikan sebuah sistem yang dapat mengubah dirinya menjadi sebuah
+_(President Soekarno is a very famous person in Indonesia. he is a very smart man and
+  have the ability to rule the world. he also has the ability to create and create a system
+  which can be used to perform special tasks. he also has the ability to create
+  and control various forms and abilities to do things that are not desirable. He also
+  has the ability to create and control a system that can transform itself into a)_ 
 
 - jatuh cinta disebabkan oleh adanya perbedaan pendapat mengenai apakah mereka akan melakukan hubungan seksual. 
+_(falling in love is caused by differences of opinion about whether they will have sexual relations)_
 
-- laki laki jatuh cinta adalah hal yang tidak biasa. 
+- laki laki jatuh cinta adalah hal yang tidak biasa. _(men fall in love is unusual.)_
 
-- gadis jatuh cinta disebabkan oleh cinta kasih yang kuat. 
+- gadis jatuh cinta disebabkan oleh cinta kasih yang kuat. _(The girl falls in love due to the strong love.)_
 
 - seks dan cinta adalah sebuah hal yang sangat penting bagi kehidupan manusia. 
+_(sex and love are very important things for human life)_
 
-- borobudur adalah warisan dari kerajaan mataram kuno. 
+- borobudur adalah warisan dari kerajaan mataram kuno. _(Borobudur is a legacy of the ancient Mataram kingdom)_
 
-- anak balita adalah anak - anak yang lahir dari keluarga yang memiliki kemampuan untuk melakukan hal - hal yang tidak diinginkan. anak - anak yang lahir dari keluarga yang memiliki kemampuan untuk melakukan hal tersebut, seperti anak - anak, anak - anak, dan orang dewasa. anak - anak yang lahir dari keluarga yang memiliki kemampuan untuk melakukan hal tersebut dapat menjadi orang tua yang baik, dan anak - anak mereka akan menjadi anak yang baik dan mampu 
-
+- anak balita adalah anak - anak yang lahir dari keluarga yang memiliki kemampuan untuk melakukan hal - hal yang 
+tidak diinginkan. anak - anak yang lahir dari keluarga yang memiliki kemampuan untuk melakukan hal tersebut, 
+seperti anak - anak, anak - anak, dan orang dewasa. anak - anak yang lahir dari keluarga yang memiliki kemampuan 
+untuk melakukan hal tersebut dapat menjadi orang tua yang baik, dan anak - anak mereka akan menjadi anak yang 
+baik dan mampu 
+_(Toddlers are children born to families who have the ability to do things
+  undesirable. children born to families who have the ability to do this,
+  like children, children, and adults. children born to families who have abilities
+  to do this can be a good parent, and their children will become children
+  good and capable)_
+  
 - ibukota rusia adalah kota terbesar di dunia, yaitu kota moskow. 
+_(Russia's capital is the largest city in the world, the city of Moscow)_
 
 - australia terletak di sebelah barat laut pulau papua. 
+_(Australia is located in the northwest of the island of Papua.)_
 
 # Text Classification
 
