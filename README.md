@@ -1,2 +1,2 @@
 This is just a playground for language modeling using different algorithms. 
-Currently only Keras with LSTM, but soon I will try ULMFIT [http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html] 
+Following is the language model for [Indonesian language](https://github.com/cahya-wirawan/language-modeling/tree/master/ULMFit)
