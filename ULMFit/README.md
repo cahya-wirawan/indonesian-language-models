@@ -26,7 +26,7 @@ The language model can also be used to extract text features for other downstrea
 
 # Language Modeling
 
-Indonesian language model are trained using the [fast.ai](http://www.fast.ai/) version of 
+The Indonesian language model was trained using the [fast.ai](http://www.fast.ai/) version of 
 [AWD LSTM Language Model](https://arxiv.org/abs/1708.02182)
 --basically LSTM with droupouts--with data from [Wikipedia](https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-articles.xml.bz2) 
 (last updated Sept 21, 2018). Using 90/10 train-validation split, we achieved perplexity of **38.78 with 60,002 
