@@ -1,65 +1,47 @@
-import json
-import pathlib
-
 from fastai.text import *
 
 import numpy as np
-import pandas as pd
-import utils
+from utils import beamsearch
 
 BOS = 'xbos'  # beginning-of-sentence tag
 FLD = 'xfld'  # data field tag
 
-PATH = pathlib.Path("lm-data/wiki_extr/id")
-LM_PATH=Path('lm-data/id/lm/')
+LANG = 'id'
+LM_PATH = Path('./lm_data/' + LANG)
+LM_PATH_MODEL = LM_PATH/'lm_indonesia_final.h5'
+LM_PATH_ITOS = LM_PATH/'itos.pkl'
 
-# Truncating our vocab to ignore the rare words
-max_vocab = 60000
-min_freq = 5
-
-# Loading the indexed representation of our dataset from disk
-# we also load the index-word mapping to to help us convert the indexes to word datasets, if need be.
-trn_lm = np.load(LM_PATH/'tmp'/'trn_ids.npy')
-val_lm = np.load(LM_PATH/'tmp'/'val_ids.npy')
-itos = pickle.load(open(LM_PATH/'tmp'/'itos.pkl', 'rb'))
+# Loading the index-word mapping to to help us convert the indexes to word datasets, if need be.
+itos = pickle.load(open(LM_PATH_ITOS, 'rb'))
 
 # creating a index-key dictionary for our vocabulary
 stoi = collections.defaultdict(lambda:0, {v:k for k,v in enumerate(itos)})
 
 # checking vocabulary size
 vs=len(itos)
-print(vs,len(trn_lm))
 
 em_sz,nh,nl = 400,1150,3
 
-PRE_PATH = LM_PATH/'models'/'wt103'
-PRE_LM_PATH = PRE_PATH/'fwd_wt103.h5'
+seq_rnn = get_language_model(vs, em_sz, nh, nl, 1)
+lm = LanguageModel(to_gpu(seq_rnn))
+load_model(seq_rnn, LM_PATH_MODEL)
 
-wd=1e-7
-bptt=70
-bs=52
-opt_fn = partial(optim.Adam, betas=(0.8, 0.99))
+seq_rnn.eval()
+seq_rnn[0].bs = 1
 
-trn_dl = LanguageModelLoader(np.concatenate(trn_lm), bs, bptt)
-val_dl = LanguageModelLoader(np.concatenate(val_lm), bs, bptt)
-md = LanguageModelData(PATH, 1, vs, trn_dl, val_dl, bs=bs, bptt=bptt)
-
-drops = np.array([0.25, 0.1, 0.2, 0.02, 0.15])*0.7 # if you're overfitting, increase this. Underfitting? decrease this.
-
-learner= md.get_model(opt_fn, em_sz, nh, nl,
-                      dropouti=drops[0], dropout=drops[1], wdrop=drops[2], dropoute=drops[3], dropouth=drops[4])
-
-learner.load("lm_indonesia_v2_3")
-
-m = learner.model
-m.eval()
-m[0].bs = 1
 
 def get_next_word(string, predictions_number=10):
     idxs = np.array([[stoi[p] for p in string]])
+    # print("<------- " + " ".join(string) + " ------->")
+    #seq_rnn.reset()
+    t = LongTensor(idxs).view(-1,1).cuda()
+    t = Variable(t,volatile=False)
+    pred,*_ = seq_rnn(t)
+    probabilities = F.softmax(pred[-1])
 
-    prediction = m(VV(idxs))
-    probabilities = F.softmax(prediction[0][-1])
+    #prediction = seq_rnn(VV(idxs))
+    #probabilities = F.softmax(prediction[0][-1])
+
     top = torch.topk(probabilities, predictions_number)
     best_predictions = []
     for i in range(predictions_number):
@@ -70,9 +52,49 @@ def get_next_word(string, predictions_number=10):
         best_predictions.append((probability, word))
     return best_predictions
 
+class LongTensor(torch.LongTensor):
+    def __init__(self, *args, **kwargs):
+        pass
 
-while True:
-    string=input('\n\nEnter atleast 3 words: \n')
-    (sentences, probability) = utils.beamsearch(get_next_word, string.strip().split(" "))
-    print()
-    print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
+def gen_sentences(ss,nb_words):
+    result = []
+    s = ss.strip().split(" ")
+    t = LongTensor([stoi[i] for i in s]).view(-1,1).cuda()
+    t = Variable(t,volatile=False)
+    seq_rnn.reset()
+    pred,*_ = seq_rnn(t)
+    for i in range(nb_words):
+        pred_i = pred[-1].topk(2)[1]
+        pred_i = pred_i[1] if pred_i.data[0] < 2 else pred_i[0]
+        result.append(itos[pred_i.data[0]])
+        pred,*_ = seq_rnn(pred_i[0].unsqueeze(0))
+    return(result)
+
+def gen_text(ss,topk):
+    #s = word_tokenize(ss,engine='newmm')
+    s = ss.split(" ")
+    t = LongTensor([stoi[i] for i in s]).view(-1,1).cuda()
+    t = Variable(t,volatile=False)
+    seq_rnn.reset()
+    pred,*_ = seq_rnn(t)
+    pred_i = torch.topk(pred[-1], topk)[1]
+    return [itos[o] for o in to_np(pred_i)]
+
+BS = True
+
+if not BS:
+    while True:
+        string=input('\n\nEnter at least 3 words: \n')
+        #print(gen_text(string, 10))
+        print(gen_sentences(string, 70))
+else:
+    while True:
+        string=input('\n\nEnter at least 3 words: \n')
+        seq_rnn.reset()
+        result = beamsearch(get_next_word, string=string.strip().split(" "),
+                            beam_width=10, length_min=5, length_max=30)
+
+        print()
+        #print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
+        for sentence in result.best_sentences(complete=False):
+            print("{}".format(sentence))
