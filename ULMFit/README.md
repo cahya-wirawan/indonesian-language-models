@@ -2,7 +2,7 @@
 State-of-the-Art Language Modeling in Indonesian created with [ULMFit](https://arxiv.org/abs/1801.06146) 
 implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
 
-Pre-trained model, preprocessed training dataset of Indonesian Wikipedia can be downloaded via [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz)
+The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz)
 We provide state-of-the-art language modeling (perplexity of 38.78 on Indoenesian wikipedia). We will try to
 improve it with more training time since the curve for validation loss still have good trend toward lower loss.
 
