@@ -1,5 +1,6 @@
 import heapq
 import math
+import re
 
 class Beam(object):
     # For comparison of prefixes, the tuple (prefix_probability, complete_sentence) is used.
@@ -21,8 +22,18 @@ class Beam(object):
 
     def best_sentences(self, complete=True):
         self.sort()
-        result = [" ".join(l[2]) for l in self.heap if l[1] or not complete]
+        result = [re.sub('\s+([.,])', r'\1'," ".join(l[2]).rstrip()) for l in self.heap if l[1] or not complete]
         return result
+
+    def best_sentence(self, complete=True):
+        self.sort()
+        for l in self.heap:
+            if complete and l[1]:
+                return [re.sub('\s+([.,])', r'\1', " ".join(l[2]).rstrip())]
+            else:
+                if not complete:
+                    return [re.sub('\s+([.,])', r'\1', " ".join(l[2]).rstrip())]
+        return [""]
 
     def __iter__(self):
         return iter(self.heap)

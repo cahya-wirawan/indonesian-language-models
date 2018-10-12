@@ -7,9 +7,9 @@ BOS = 'xbos'  # beginning-of-sentence tag
 FLD = 'xfld'  # data field tag
 
 LANG = 'id'
-LM_PATH = Path('./lm_data/' + LANG)
-LM_PATH_MODEL = LM_PATH/'lm_indonesia_final.h5'
-LM_PATH_ITOS = LM_PATH/'itos.pkl'
+LM_PATH = Path('./lmdata/' + LANG)
+LM_PATH_MODEL = LM_PATH/'models/wiki_id_lm.h5'
+LM_PATH_ITOS = LM_PATH/'wiki_id_itos.pkl'
 
 # Loading the index-word mapping to to help us convert the indexes to word datasets, if need be.
 itos = pickle.load(open(LM_PATH_ITOS, 'rb'))
@@ -33,7 +33,7 @@ seq_rnn[0].bs = 1
 def get_next_word(string, predictions_number=10):
     idxs = np.array([[stoi[p] for p in string]])
     # print("<------- " + " ".join(string) + " ------->")
-    #seq_rnn.reset()
+    seq_rnn.reset()
     t = LongTensor(idxs).view(-1,1).cuda()
     t = Variable(t,volatile=False)
     pred,*_ = seq_rnn(t)
@@ -72,7 +72,7 @@ def gen_sentences(ss,nb_words):
 
 def gen_text(ss,topk):
     #s = word_tokenize(ss,engine='newmm')
-    s = ss.split(" ")
+    s = ss.strip().split(" ")
     t = LongTensor([stoi[i] for i in s]).view(-1,1).cuda()
     t = Variable(t,volatile=False)
     seq_rnn.reset()
@@ -80,21 +80,40 @@ def gen_text(ss,topk):
     pred_i = torch.topk(pred[-1], topk)[1]
     return [itos[o] for o in to_np(pred_i)]
 
-BS = True
+def generate_sentence(ss, nb_words):
+    result = []
+    s = ss.strip().split(" ")
+    t = LongTensor([stoi[i] for i in s]).view(-1,1).cuda()
+    t = Variable(t,volatile=False)
+    seq_rnn.reset()
+    pred,*_ = seq_rnn(t)
+    for i in range(nb_words):
+        pred_i = pred[-1].topk(2)[1]
+        pred_i = pred_i[1] if pred_i.data[0] < 2 else pred_i[0]
+        word = itos[pred_i.data[0]]
+        if word != 'xbos':
+            result.append(word)
+        else:
+            break
+        pred,*_ = seq_rnn(pred_i[0].unsqueeze(0))
 
-if not BS:
+    result = re.sub('\s+([.,])', r'\1', "{} {}".format(ss, " ".join(result).rstrip()))
+    return(result)
+
+BS = False
+
+if BS:
     while True:
-        string=input('\n\nEnter at least 3 words: \n')
-        #print(gen_text(string, 10))
-        print(gen_sentences(string, 70))
+        string=input('\n\nEnter at least 2 words: \n')
+        seq_rnn.reset()
+        result = beamsearch(get_next_word, string=string.strip().split(" "),
+                            beam_width=10, length_min=10, length_max=100)
+
+        #print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
+        for sentence in result.best_sentences(complete=True):
+            print("{}".format(sentence))
 else:
     while True:
         string=input('\n\nEnter at least 3 words: \n')
-        seq_rnn.reset()
-        result = beamsearch(get_next_word, string=string.strip().split(" "),
-                            beam_width=10, length_min=5, length_max=30)
-
-        print()
-        #print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
-        for sentence in result.best_sentences(complete=False):
-            print("{}".format(sentence))
+        #print(gen_text(string, 10))
+        print(generate_sentence(string, 70))
