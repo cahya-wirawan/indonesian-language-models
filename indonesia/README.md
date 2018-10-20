@@ -4,7 +4,7 @@ implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/intro
 
 The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
 [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
-We provide state-of-the-art language modeling (perplexity of 38.78 on Indonesian Wikipedia). We will try to
+We provide state-of-the-art language modeling (perplexity of 27.67 on Indonesian Wikipedia). We will try to
 improve it with more training time since the curve for validation loss still have good trend toward lower loss.
 
 Due to some difficulties to find curated and publicly available dataset for indonesian text, we can't 
@@ -24,6 +24,10 @@ The language model can also be used to extract text features for other downstrea
 
 * Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
 
+
+## v0.2
+
+* Pretrained language model based on Indonesian Wikipedia with the perplexity of 27.67
 
 # Language Modeling
 
