@@ -30,8 +30,9 @@ the indonesian part are used for our purpose. The corpus has 4 categories:
 * Sport
 
 ## Performance Comparison
-Since there is no comparable text classification's result using this dataset, a performance test with 
-difference other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
+Since there is no comparable text classification's result using this dataset, 
+a [performance test](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_classification_comparison.ipynb) 
+with difference other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
 Random Forest (RF), Extreme Gradient Boosting(Xgb), Convolition Neural Network (CNN), LSTM or GRU, 
 has been introduced.
 
