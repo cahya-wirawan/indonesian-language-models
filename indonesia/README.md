@@ -62,6 +62,9 @@ has been introduced.
 
 (*) something is wrong with the training on svm
 
+It shows that text classification using ULMFit outperformed other algorithms using classical machine learning 
+or other neural network models.
+
 # Dependencies
 * Python 3.6.5
 * PyTorch 0.4.0
