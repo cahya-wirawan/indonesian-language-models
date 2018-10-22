@@ -4,7 +4,7 @@ implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/intro
 
 The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
 [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
-We provide state-of-the-art language modeling (perplexity of 38.78 on Indonesian Wikipedia). We will try to
+We provide state-of-the-art language modeling (perplexity of 27.67 on Indonesian Wikipedia). We will try to
 improve it with more training time since the curve for validation loss still have good trend toward lower loss.
 
 Due to some difficulties to find curated and publicly available dataset for indonesian text, we can't 
@@ -25,12 +25,16 @@ The language model can also be used to extract text features for other downstrea
 * Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
 
 
+## v0.2
+
+* Pretrained language model based on Indonesian Wikipedia with the perplexity of 27.67
+
 # Language Modeling
 
 The Indonesian language model was trained in [jupyter notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/ULMFit/lm_indonesia.ipynb)
 using the [fast.ai](http://www.fast.ai/) version of [AWD LSTM Language Model](https://arxiv.org/abs/1708.02182)
 --basically LSTM with droupouts--with data from [Wikipedia](https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-articles.xml.bz2) 
-(last updated Sept 21, 2018). Using 90/10 train-validation split, we achieved perplexity of **38.78 with 60,002 
+(last updated Sept 21, 2018). Using 90/10 train-validation split, we achieved perplexity of **27.67 with 60,002 
 embeddings at 400 dimensions**, compared to state-of-the-art as of June 12, 2018 at **40.68 for English WikiText-2 
 by [Yang et al (2017)](https://arxiv.org/abs/1711.03953)** and **29.2 for English WikiText-103 by 
 [Rae et al (2018)](https://arxiv.org/abs/1803.10049)**. 
