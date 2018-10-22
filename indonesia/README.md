@@ -19,7 +19,7 @@ classification, speech recognition or machine translation.
 
 # Text Classification
 It is a big challenge to find curated or publicly available dataset for indonesian text, but nevertheless,
-a good reviewed indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
+a small reviewed indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
 dataset from PAN Localization. It contains 500,000 words from various online sources translated into English.
 Actually, its purpose is for indonesian-english translation, but we "misused" it for text classification, and only 
 the indonesian part are used for our purpose. The corpus has 4 categories:
