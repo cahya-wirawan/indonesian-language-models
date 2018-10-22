@@ -1,17 +1,65 @@
 # Indonesian Language Modeling
-State-of-the-Art Language Modeling in Indonesian created with [ULMFit](https://arxiv.org/abs/1801.06146) 
-implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
+It is Language Modeling in Indonesian created with [ULMFit](https://arxiv.org/abs/1801.06146) 
+implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html).
+A state-of-the-art language modeling with perplexity of **27.67** on Indonesian Wikipedia has been achieved. 
+As reference, a perplexity of **40.68** has been achieved by [Yang et al (2017)](https://arxiv.org/abs/1711.03953) 
+for English WikiText-2 in June 12, 2018. Another paper by [Rae et al (2018)](https://arxiv.org/abs/1803.10049) 
+achieved perplexity of **29.2** for English WikiText-103. Lower perplexity means better performance. Obviously, 
+the perplexity of the language model on Indonesian Wikipedia can't be compared with both mentioned papers due to 
+completely difference dataset, but as reference, I hope it can be still useful. To the best of my knowledge, 
+there is no comparable research in Indonesian language at the point of writing (September 21, 2018).
 
-The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
-[Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
-We provide state-of-the-art language modeling (perplexity of 27.67 on Indonesian Wikipedia). We will try to
-improve it with more training time since the curve for validation loss still have good trend toward lower loss.
+The model has been trained in [jupyter notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit.ipynb)
+using the [fast.ai](http://www.fast.ai/) version of [AWD LSTM Language Model](https://arxiv.org/abs/1708.02182)
+--basically LSTM with droupouts--with data from [Wikipedia](https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-articles.xml.bz2) 
+(last updated Sept 21, 2018). The dataset has been split to 90/10 train-validation.
 
-Due to some difficulties to find curated and publicly available dataset for indonesian text, we can't 
-provide a benchmark for text classification yet, but as soon as we can find one (please contact us if you have one),
-we will update our research.
+The language model can also be used to extract text features for other downstream tasks such as text 
+classification, speech recognition or machine translation.
 
-The language model can also be used to extract text features for other downstream tasks.
+# Text Classification
+It is a big challenge to find curated or publicly available dataset for indonesian text, but nevertheless,
+a good reviewed indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
+dataset from PAN Localization. It contains 500,000 words from various online sources translated into English.
+Actually, its purpose is for indonesian-english translation, but we "misused" it for text classification, and only 
+the indonesian part are used for our purpose. The corpus has 4 categories:
+                                               
+* Economy
+* International
+* Science
+* Sport
+
+## Performance Comparison
+Since there is no comparable text classification's result using this dataset, a performance test with 
+difference other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
+Random Forest (RF), Extreme Gradient Boosting(Xgb), Convolition Neural Network (CNN), LSTM or GRU, 
+has been introduced.
+
+| Name                   | Accuracy |
+| ---------------------- |---------:| 
+| NB, Count Vectors      |   0.9269 |
+| NB, WordLevel TF-IDF   |   0.9162 |
+| NB, N-Gram Vectors     |   0.7822 |
+| NB, CharLevel Vectors  |   0.8433 |
+| LC, Count Vectors      |   0.9265 |
+| LC, WordLevel TF-IDF   |   0.9179 |
+| LC, N-Gram Vectors     |   0.8085 |
+| LC, CharLevel Vectors  |   0.8888 |
+| SVM, N-Gram Vectors(*) |   0.2582 |
+| RF, Count Vectors      |   0.8392 |
+| RF, WordLevel TF-IDF   |   0.8338 |
+| Xgb, Count Vectors     |   0.8087 |
+| Xgb, WordLevel TF-IDF  |   0.8070 |
+| Xgb, CharLevel Vectors |   0.8202 |
+| CNN                    |   0.9263 |
+| Kim Yoon’s CNN         |   0.9163 |
+| RNN-LSTM               |   0.9305 |
+| RNN-GRU                |   0.9296 |
+| Biderectional RNN      |   0.9267 |
+| RCNN                   |   0.9221 |
+| **ULMFit**             | **0.9563** |
+
+(*) something is wrong with the training on svm
 
 # Dependencies
 * Python 3.6.5
@@ -23,26 +71,19 @@ The language model can also be used to extract text features for other downstrea
 ## v0.1
 
 * Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
+* The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
+  [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
 
 
 ## v0.2
 
-* Pretrained language model based on Indonesian Wikipedia with the perplexity of 27.67
-
-# Language Modeling
-
-The Indonesian language model was trained in [jupyter notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/ULMFit/lm_indonesia.ipynb)
-using the [fast.ai](http://www.fast.ai/) version of [AWD LSTM Language Model](https://arxiv.org/abs/1708.02182)
---basically LSTM with droupouts--with data from [Wikipedia](https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-articles.xml.bz2) 
-(last updated Sept 21, 2018). Using 90/10 train-validation split, we achieved perplexity of **27.67 with 60,002 
-embeddings at 400 dimensions**, compared to state-of-the-art as of June 12, 2018 at **40.68 for English WikiText-2 
-by [Yang et al (2017)](https://arxiv.org/abs/1711.03953)** and **29.2 for English WikiText-103 by 
-[Rae et al (2018)](https://arxiv.org/abs/1803.10049)**. 
-To the best of our knowledge, there is no comparable research in Indonesian language at the point of writing 
-(September 21, 2018).
+* The second version includes [1cycle policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) 
+which speed up the training time. The model has been also trained with more epochs (around 30 epochs) which highly 
+improved the perplexity from **38.78** to **27.67**.
+* The pre-trained model will be available soon.
 
 # Text Generation using the language model
-We tested our language model to generate sentences using some strings seeds:
+The language model (v0.1) has been tested to generate sentences using some strings seeds:
 - "jika ibu bersedih sepanjang hari",
 - "orang baduy adalah",
 - "presiden soekarno adalah",
@@ -104,7 +145,3 @@ _(Russia's capital is the largest city in the world, the city of Moscow)_
 
 - australia terletak di sebelah barat laut pulau papua. 
 _(Australia is located in the northwest of the island of Papua.)_
-
-# Text Classification
-
-We are trying to find publicly available dataset for indonesian text.
