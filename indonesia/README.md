@@ -12,7 +12,8 @@ there is no comparable research in Indonesian language at the point of writing (
 The model has been trained in [jupyter notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit.ipynb)
 using the [fast.ai](http://www.fast.ai/) version of [AWD LSTM Language Model](https://arxiv.org/abs/1708.02182)
 --basically LSTM with droupouts--with data from [Wikipedia](https://dumps.wikimedia.org/idwiki/latest/idwiki-latest-pages-articles.xml.bz2) 
-(last updated Sept 21, 2018). The dataset has been split to 90/10 train-validation.
+(last updated Sept 21, 2018). The dataset has been split to 90/10 train-validation with a vocabulary size of 60,002
+and embeddings dimensions of 400.
 
 The language model can also be used to extract text features for other downstream tasks such as text 
 classification, speech recognition or machine translation.
