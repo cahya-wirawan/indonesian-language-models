@@ -19,7 +19,7 @@ classification, speech recognition or machine translation.
 
 # Text Classification
 It is a big challenge to find curated or publicly available dataset for indonesian text, but nevertheless,
-a small reviewed indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
+a small curated indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
 dataset from PAN Localization. It contains 500,000 words from various online sources translated into English.
 Actually, its purpose is for indonesian-english translation, but we "misused" it for text classification, and only 
 the indonesian part are used for our purpose. The corpus has 4 categories:
@@ -32,7 +32,7 @@ the indonesian part are used for our purpose. The corpus has 4 categories:
 ## Performance Comparison
 Since there is no comparable text classification's result using this dataset, 
 a [performance test](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_classification_comparison.ipynb) 
-with difference other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
+with various other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
 Random Forest (RF), Extreme Gradient Boosting(Xgb), Convolition Neural Network (CNN), LSTM or GRU, 
 has been introduced.
 
