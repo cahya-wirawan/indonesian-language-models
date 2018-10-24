@@ -19,11 +19,13 @@ The language model can also be used to extract text features for other downstrea
 classification, speech recognition or machine translation.
 
 # Text Classification
-It is a big challenge to find curated or publicly available dataset for indonesian text, but nevertheless,
-a small curated indonesian dataset can be found eventually. It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
+Since there is no other comparable indonesian language model, we need to create a downstream task and compare its 
+accuracy. A Text Classification was chosen for this purpose, but it is a big challenge to find curated or publicly 
+available dataset for indonesian text. Nevertheless, a small curated indonesian dataset was found eventually. 
+It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
 dataset from PAN Localization. It contains 500,000 words from various online sources translated into English.
 Actually, its purpose is for indonesian-english translation, but we "misused" it for text classification, and only 
-the indonesian part are used for our purpose. The corpus has 4 categories:
+the indonesian part are used for this purpose. The corpus has 4 categories:
                                                
 * Economy
 * International
@@ -31,11 +33,11 @@ the indonesian part are used for our purpose. The corpus has 4 categories:
 * Sport
 
 ## Performance Comparison
-Since there is no comparable text classification's result using this dataset, 
+Currently, there is no comparable text classification's result using this dataset, therefore
 a [performance test](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_classification_comparison.ipynb) 
 with various other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
 Random Forest (RF), Extreme Gradient Boosting(Xgb), Convolition Neural Network (CNN), LSTM or GRU, 
-has been introduced.
+has been performed. Following is the test result:
 
 | Name                   | Accuracy |
 | ---------------------- |---------:| 
@@ -88,7 +90,7 @@ improved the perplexity from **38.78** to **27.67**.
 * The pre-trained model will be available soon.
 
 # Text Generation using the language model
-The language model (v0.1) has been tested to generate sentences using some strings seeds:
+The language model (v0.1) has been tested to generate sentences using various strings seeds:
 - "jika ibu bersedih sepanjang hari",
 - "orang baduy adalah",
 - "presiden soekarno adalah",
