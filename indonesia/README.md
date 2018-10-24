@@ -90,7 +90,10 @@ improved the perplexity from **38.78** to **27.67**.
 * The pre-trained model will be available soon.
 
 # Text Generation using the language model
-The language model (v0.1) has been tested to generate sentences using various strings seeds:
+The language model (v0.1) has been tested to generate sentences using 
+[this script](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_test.py). 
+Various strings seeds are used for this purpose:
+
 - "jika ibu bersedih sepanjang hari",
 - "orang baduy adalah",
 - "presiden soekarno adalah",
