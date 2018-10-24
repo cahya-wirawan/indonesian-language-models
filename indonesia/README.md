@@ -68,27 +68,6 @@ has been performed. Following is the test result:
 It shows that text classification using ULMFit outperformed other algorithms using classical machine learning 
 or other neural network models.
 
-# Dependencies
-* Python 3.6.5
-* PyTorch 0.4.0
-* fast.ai
-
-# Version History
-
-## v0.1
-
-* Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
-* The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
-  [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
-
-
-## v0.2
-
-* The second version includes [1cycle policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) 
-which speed up the training time. The model has been also trained with more epochs (around 30 epochs) which highly 
-improved the perplexity from **38.78** to **27.67**.
-* The pre-trained model will be available soon.
-
 # Text Generation using the language model
 The language model (v0.1) has been tested to generate sentences using 
 [this script](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_test.py). 
@@ -155,3 +134,24 @@ _(Russia's capital is the largest city in the world, the city of Moscow)_
 
 - australia terletak di sebelah barat laut pulau papua. 
 _(Australia is located in the northwest of the island of Papua.)_
+
+# Dependencies
+* Python 3.6.5
+* PyTorch 0.4.0
+* fast.ai
+
+# Version History
+
+## v0.1
+
+* Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
+* The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
+  [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
+
+
+## v0.2
+
+* The second version includes [1cycle policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) 
+which speed up the training time. The model has been also trained with more epochs (around 30 epochs) which highly 
+improved the perplexity from **38.78** to **27.67**.
+* The pre-trained model will be available soon.
