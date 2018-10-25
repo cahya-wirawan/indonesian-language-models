@@ -23,7 +23,7 @@ Since there is no other comparable indonesian language model, we need to create 
 accuracy. A Text Classification was chosen for this purpose, but it is a big challenge to find curated or publicly 
 available dataset for indonesian text. Nevertheless, a small curated indonesian dataset was found eventually. 
 It is [Word Bahasa Indonesia Corpus and Parallel English Translation](https://www.panl10n.net/english/outputs/Indonesia/BPPT/0902/BPPTIndToEngCorpusHalfM.zip) 
-dataset from PAN Localization. It contains 500,000 words from various online sources translated into English.
+dataset created by BPPT (Indonesian Agency For The Assessment and Application of Technology) for PAN Localization. It contains 500,000 words from various online sources translated into English.
 Actually, its purpose is for indonesian-english translation, but we "misused" it for text classification, and only 
 the indonesian part are used for this purpose. The corpus has 4 categories:
                                                
@@ -65,7 +65,7 @@ has been performed. Following is the test result:
 
 (*) something is wrong with the training on svm
 
-It shows that text classification using ULMFit outperformed other algorithms using classical machine learning 
+It shows that text classification using ULMFit outperforms other algorithms using classical machine learning 
 or other neural network models.
 
 # Text Generation using the language model
@@ -152,6 +152,6 @@ _(Australia is located in the northwest of the island of Papua.)_
 ## v0.2
 
 * The second version includes [1cycle policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) 
-which speed up the training time. The model has been also trained with more epochs (around 30 epochs) which highly 
+which speed up the training time. The model has been also trained with more epochs (around 40 epochs) which highly 
 improved the perplexity from **38.78** to **27.67**.
 * The pre-trained model will be available soon.
