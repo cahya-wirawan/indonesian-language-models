@@ -92,7 +92,7 @@ def generate_sentence(ss, nb_words):
         pred_i = pred[-1].topk(2)[1]
         pred_i = pred_i[1] if pred_i.data[0] < 2 else pred_i[0]
         word = itos[pred_i.data[0]]
-        if word != 'xbos':
+        if word != 'xbos' and word != 'xfld':
             result.append(word)
         else:
             break
