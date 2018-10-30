@@ -1,7 +1,7 @@
 # Indonesian Language Modeling
-It is Language Modeling in Indonesian created with [ULMFit](https://arxiv.org/abs/1801.06146) 
-implementation from [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html).
-A state-of-the-art language modeling with perplexity of **27.67** on Indonesian Wikipedia has been achieved. 
+A state-of-the-art language modeling with perplexity of **27.67** on Indonesian Wikipedia has been achieved. It is 
+created with [ULMFit](https://arxiv.org/abs/1801.06146) implementation from 
+[fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html).
 As reference, a perplexity of **40.68** has been achieved by [Yang et al (2017)](https://arxiv.org/abs/1711.03953) 
 for English WikiText-2 in June 12, 2018. Another paper by [Rae et al (2018)](https://arxiv.org/abs/1803.10049) 
 achieved perplexity of **29.2** for English WikiText-103. Lower perplexity means better performance. Obviously, 
