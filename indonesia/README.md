@@ -145,8 +145,8 @@ _(Australia is located in the northwest of the island of Papua.)_
 ## v0.1
 
 * Pretrained language model based on Indonesian Wikipedia with the perplexity of 38.78
-* The pre-trained model and preprocessed training dataset of Indonesian Wikipedia can be downloaded via 
-  [Nofile.io](https://nofile.io/f/NZDQB8Wo0eU/lm_data.tgz).
+* The pre-trained model for this version can be downloaded: 
+  [lmdata_0.1.tgz](https://nofile.io/f/f22QAjnXasK/lmdata_0.1.tgz).
 
 
 ## v0.2
@@ -154,4 +154,5 @@ _(Australia is located in the northwest of the island of Papua.)_
 * The second version includes [1cycle policy](https://sgugger.github.io/the-1cycle-policy.html#the-1cycle-policy) 
 which speed up the training time. The model has been also trained with more epochs (around 40 epochs) which highly 
 improved the perplexity from **38.78** to **27.67**.
-* The pre-trained model will be available soon.
+* The pre-trained model is now available: 
+  [lmdata_0.2.tgz](https://nofile.io/f/NfKr9NvbaDK/lmdata_0.2.tgz).

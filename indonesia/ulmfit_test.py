@@ -6,9 +6,9 @@ from utils import beamsearch
 BOS = 'xbos'  # beginning-of-sentence tag
 FLD = 'xfld'  # data field tag
 
-VERSION = '0.2'
+# VERSION = '0.2'
 LANG = 'id'
-LM_PATH = Path(f'lmdata_{VERSION}/{LANG}/')
+LM_PATH = Path(f'lmdata_0.2/{LANG}/')
 LM_PATH_MODEL = LM_PATH/'models/wiki_id_lm.h5'
 LM_PATH_ITOS = LM_PATH/'wiki_id_itos.pkl'
 
