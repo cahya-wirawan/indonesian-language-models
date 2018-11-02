@@ -13,8 +13,8 @@ PATH_LM = PATH_ROOT
 PATH_TMP = PATH_ROOT/'tmp'
 PATH_TMP.mkdir(parents=True, exist_ok=True)
 
-TRAIN_FILENAME = PATH_DATA/'valid'
-VALID_FILENAME = PATH_DATA/'valid1000'
+TRAIN_FILENAME = PATH_DATA/'train'
+VALID_FILENAME = PATH_DATA/'valid'
 
 re1 = re.compile(r'  +')
 
