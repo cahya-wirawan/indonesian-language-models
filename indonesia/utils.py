@@ -35,6 +35,12 @@ class Beam(object):
                     return [re.sub('\s+([.,])', r'\1', " ".join(l[2]).rstrip())]
         return [""]
 
+    def is_complete(self):
+        for (prob, complete, prefix) in self.heap:
+            if not complete:
+                return False
+        return True
+
     def __iter__(self):
         return iter(self.heap)
 
@@ -76,4 +82,46 @@ def beamsearch(probabilities_function, string=None, beam_width=10, length_min=10
             return curr_beam
             #return best sentence without the start token and together with its probability
 
+        prev_beam = curr_beam
+
+
+def beamsearch_punctuation(probabilities_function, punctuations, string=None, beam_width=10):
+    prev_beam = Beam(beam_width)
+    prev_beam.add(0.0, False, [string[0]])
+    depth = 1
+    string_p_counter = 0
+    for i in string:
+        if i in punctuations:
+            string_p_counter += 1
+    while True:
+        curr_beam = Beam(beam_width)
+        for (prefix_prob, complete, prefix) in prev_beam:
+            if complete == True:
+                curr_beam.add(prefix_prob, True, prefix)
+            else:
+                p_counter = 0
+                for i in prefix:
+                    if i in punctuations:
+                        p_counter += 1
+                idx = len(prefix) - p_counter
+                if idx >= len(string):
+                    next_word = None
+                else:
+                    next_word = string[idx]
+                result = probabilities_function(prefix, next_word, punctuations)
+                if len(result) == 0:
+                    if next_word is None:
+                        curr_beam.add(prefix_prob, True, prefix)
+                    else:
+                        curr_beam.add(prefix_prob, False, prefix)
+                for (next_prob, next_word) in result:
+                    if next_word == 'xbos':
+                        curr_beam.add(prefix_prob + math.log10(next_prob), True, prefix)
+                    else:
+                        curr_beam.add(prefix_prob + math.log10(next_prob), False, prefix+[next_word])
+
+        if curr_beam.is_complete():
+            return curr_beam
+
+        depth = depth + 1
         prev_beam = curr_beam
