@@ -154,8 +154,8 @@ if BS:
                             beam_width=5)
 
         #print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
-        for sentence in result.best_sentences(complete=False):
-            print("{}".format(sentence))
+        for i, sentence in enumerate(result.best_sentences(complete=False)):
+            print(f'{i+1}. {sentence}')
 else:
     while True:
         string = input('\n\nEnter at least 3 words: \n')
