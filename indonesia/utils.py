@@ -11,38 +11,39 @@ class Beam(object):
         self.heap = list()
         self.beam_width = beam_width
 
-    def add(self, prob, complete, prefix):
+    def add(self, prob, complete, prefix, punctuation_counter):
         #print("prob: {}, prefix:{}".format(prob, prefix))
-        heapq.heappush(self.heap, (prob, complete, prefix))
+        heapq.heappush(self.heap, (prob, complete, prefix, punctuation_counter))
         if len(self.heap) > self.beam_width:
             heapq.heappop(self.heap)
 
     def sort(self, reverse=True):
         self.heap.sort(key=lambda x:x[0], reverse=reverse)
 
-    def best_sentences(self, complete=True):
+    def best_sentences(self, complete=True, punctuations='.,\?'):
         self.sort()
-        result = [re.sub('\s+([.,])', r'\1'," ".join(l[2]).rstrip()) for l in self.heap if l[1] or not complete]
+        result = [re.sub(f'\s+([{punctuations}])', r'\1'," ".join(l[2]).rstrip()) for l in self.heap if l[1] or not complete]
         return result
 
-    def best_sentence(self, complete=True):
+    def best_sentence(self, complete=True, punctuations='.,\?'):
         self.sort()
         for l in self.heap:
             if complete and l[1]:
-                return [re.sub('\s+([.,])', r'\1', " ".join(l[2]).rstrip())]
+                return [re.sub(f'\s+([{punctuations}])', r'\1', " ".join(l[2]).rstrip())]
             else:
                 if not complete:
-                    return [re.sub('\s+([.,])', r'\1', " ".join(l[2]).rstrip())]
+                    return [re.sub(f'\s+([{punctuations}])', r'\1', " ".join(l[2]).rstrip())]
         return [""]
 
     def is_complete(self):
-        for (prob, complete, prefix) in self.heap:
+        for (prob, complete, prefix, punctuation_counter) in self.heap:
             if not complete:
                 return False
         return True
 
     def __iter__(self):
         return iter(self.heap)
+
 
 def beamsearch(probabilities_function, string=None, beam_width=10, length_min=10, length_max=20):
     string_len = len(string)
@@ -87,23 +88,16 @@ def beamsearch(probabilities_function, string=None, beam_width=10, length_min=10
 
 def beamsearch_punctuation(probabilities_function, punctuations, string=None, beam_width=10):
     prev_beam = Beam(beam_width)
-    prev_beam.add(0.0, False, [string[0]])
+    prev_beam.add(0.0, False, [string[0]], 0)
     depth = 1
-    string_p_counter = 0
-    for i in string:
-        if i in punctuations:
-            string_p_counter += 1
+
     while True:
         curr_beam = Beam(beam_width)
-        for (prefix_prob, complete, prefix) in prev_beam:
+        for (prefix_prob, complete, prefix, punctuation_counter) in prev_beam:
             if complete == True:
-                curr_beam.add(prefix_prob, True, prefix)
+                curr_beam.add(prefix_prob, True, prefix, punctuation_counter)
             else:
-                p_counter = 0
-                for i in prefix:
-                    if i in punctuations:
-                        p_counter += 1
-                idx = len(prefix) - p_counter
+                idx = len(prefix) - punctuation_counter
                 if idx >= len(string):
                     next_word = None
                 else:
@@ -111,14 +105,18 @@ def beamsearch_punctuation(probabilities_function, punctuations, string=None, be
                 result = probabilities_function(prefix, next_word, punctuations)
                 if len(result) == 0:
                     if next_word is None:
-                        curr_beam.add(prefix_prob, True, prefix)
+                        curr_beam.add(prefix_prob, True, prefix, punctuation_counter)
                     else:
-                        curr_beam.add(prefix_prob, False, prefix)
-                for (next_prob, next_word) in result:
-                    if next_word == 'xbos':
-                        curr_beam.add(prefix_prob + math.log10(next_prob), True, prefix)
+                        curr_beam.add(prefix_prob, False, prefix, punctuation_counter)
+                for (next_prob, predicted_word) in result:
+                    pc = punctuation_counter
+                    if predicted_word in punctuations and predicted_word != next_word:
+                        pc += 1
+                    if predicted_word == 'xbos':
+                        curr_beam.add(prefix_prob + math.log10(next_prob), True, prefix, pc)
                     else:
-                        curr_beam.add(prefix_prob + math.log10(next_prob), False, prefix+[next_word])
+                        curr_beam.add(prefix_prob + math.log10(next_prob), False, prefix+[predicted_word],
+                                      pc)
 
         if curr_beam.is_complete():
             return curr_beam

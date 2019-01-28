@@ -71,11 +71,10 @@ def get_next_words(string, next_word):
 
     return np.log(probabilities.data[stoi[next_word]])
 
-probability_threshold = 0.05
+probability_threshold = 0.01
 
 def get_punctuation(string, next_word, punctuations):
-    idxs = np.array([[stoi[p] for p in string]])
-    # print("<------- " + " ".join(string) + " ------->")
+    idxs = np.array([[stoi[p.lower()] for p in string]])
     seq_rnn.reset()
     t = LongTensor(idxs).view(-1,1).cuda()
     t = Variable(t,volatile=False)
@@ -146,20 +145,29 @@ def generate_sentence(ss, nb_words):
 
 BS = True
 
+
+def tokenize(string, punctuations):
+    for p in punctuations:
+        s = string.split(p)
+        string = f' {p} '.join(s)
+    tokens = string.split()
+    return tokens
+
 if BS:
     while True:
         string=input('\n\nEnter at least 2 words: \n')
         seq_rnn.reset()
-        result = beamsearch_punctuation(get_punctuation, punctuations, string=string.strip().split(" "),
-                            beam_width=5)
-
-        #print("prob: {}, sentence: {}".format(probability, " ".join(sentences)))
+        string=tokenize(string, punctuations)
+        for word in string:
+            if stoi[word.lower()] == 0:
+                print(f'OOV {word.lower()}')
+        result = beamsearch_punctuation(get_punctuation, punctuations, string=string, beam_width=5)
         for i, sentence in enumerate(result.best_sentences(complete=False)):
             print(f'{i+1}. {sentence}')
 else:
     while True:
         string = input('\n\nEnter at least 3 words: \n')
-        string_list = string.strip().split(" ")
+        string_list = tokenize(string, punctuations)
         prob = 0.0
         for i in range(len(string_list)-1):
             prob += get_next_words(string_list[:i+1], string_list[i+1])
