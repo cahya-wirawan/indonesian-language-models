@@ -158,6 +158,8 @@ if BS:
         string=input('\n\nEnter at least 2 words: \n')
         seq_rnn.reset()
         string=tokenize(string, punctuations)
+        if len(string) < 3:
+            continue
         for word in string:
             if stoi[word.lower()] == 0:
                 print(f'OOV {word.lower()}')
