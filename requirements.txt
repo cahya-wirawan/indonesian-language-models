@@ -1,3 +1,2 @@
-tensorflow
-h5py
+pytorch
 numpy
