@@ -77,7 +77,8 @@ or other neural network models.
 # Text Generation using the language model
 The language model (v0.1) has been tested to generate sentences using 
 [this script](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_test.py). 
-You can try also [the online demo of the text generator](https://lmzoo.uncool.ai/text-generator/).
+You can try also [the online demo of the text generator](https://lmzoo.uncool.ai/text-generator/), currently based on
+the language model v0.2.
 Various strings seeds are used for this purpose:
 
 - "jika ibu bersedih sepanjang hari",
