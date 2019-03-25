@@ -49,7 +49,7 @@ has been performed. Following is the test result:
 | LC, WordLevel TF-IDF   |   0.9179 |
 | LC, N-Gram Vectors     |   0.8085 |
 | LC, CharLevel Vectors  |   0.8888 |
-| SVM, N-Gram Vectors(1) |   0.2582 |
+| SVM, N-Gram Vectors    |   0.7970 |
 | RF, Count Vectors      |   0.8392 |
 | RF, WordLevel TF-IDF   |   0.8338 |
 | Xgb, Count Vectors     |   0.8087 |
@@ -61,13 +61,12 @@ has been performed. Following is the test result:
 | RNN-GRU                |   0.9296 |
 | Biderectional RNN      |   0.9267 |
 | RCNN                   |   0.9221 |
-| FasText(2)             |   0.8550 |
+| FasText(1)             |   0.8550 |
 | **ULMFit**             | **0.9563** |
 
 Notes:
 * All Neural Network models except ULMFiT use FastText's embedding vector
-* (1) something is wrong with the training on svm
-* (2) trained using the fasttext's command line: 
+* (1) trained using the fasttext's command line: 
      "_fasttext supervised -input  bppt_panl_train.txt -output model_bppt -wordNgrams 2 -lr 1.0  -epoch 50_". More epochs 
      didn't help
 
