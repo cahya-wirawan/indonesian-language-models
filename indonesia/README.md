@@ -74,11 +74,10 @@ It shows that text classification using ULMFit outperforms other algorithms usin
 or other neural network models.
 
 # Text Generation using the language model
-The language model (v0.1) has been tested to generate sentences using 
-[this script](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_test.py). 
-You can try also [the online demo of the text generator](https://lmzoo.uncool.ai/text-generator/), currently based on
-the language model v0.2.
-Various strings seeds are used for this purpose:
+[The online demo of the text generator](https://lmzoo.uncool.ai/text-generator/) is available, it is currently based on
+the language model v0.2. It can be also tested using 
+[this script](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_test.py) 
+to generate sentences. Following are some examples of the result with its starting text (using v0.1):
 
 - "jika ibu bersedih sepanjang hari",
 - "orang baduy adalah",
