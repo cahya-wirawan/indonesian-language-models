@@ -1,0 +1,3 @@
+pytorch>=1.0.0
+numpy
+fastai>=1.0.0
