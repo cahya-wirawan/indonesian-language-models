@@ -38,6 +38,7 @@ train_args = {
         "embedding_size": 128,
         "hidden_size": 256,
     },
+    "fp16": False,
 }
 
 train_file = "data/train.txt"
