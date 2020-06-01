@@ -40,7 +40,7 @@ train_args = {
     "fp16": False,
 }
 
-train_file = ["data/train.txt", "data/valid.txt"]
+train_file = "data/train.txt"
 test_file = "data/test.txt"
 
 model = LanguageModelingModel(
