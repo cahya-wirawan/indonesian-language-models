@@ -38,6 +38,7 @@ train_args = {
         "hidden_size": 256,
     },
     "fp16": False,
+    "mlm": False,
 }
 
 train_file = "data/train.txt"
