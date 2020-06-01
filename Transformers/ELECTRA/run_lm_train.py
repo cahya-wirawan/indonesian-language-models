@@ -20,7 +20,7 @@ train_args = {
     "block_size": 128,
     "max_seq_length": 128,
     "dataset_type": "simple",
-    "wandb_project": "Esperanto - ELECTRA",
+    "wandb_project": "ELECTRA - Indonesian",
     "wandb_kwargs": {"name": "Electra-SMALL"},
     "logging_steps": 100,
     "evaluate_during_training": True,
