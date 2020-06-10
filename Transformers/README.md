@@ -7,9 +7,10 @@ language models, but Malay and Indonesian still differ, even though they both be
 language. For this reason, I try to train some language models myself and make them available to the public in 
 the hope that they can be useful for Indonesian NLP research.
 
-A documentation and a better GPT2 Language Model trained with more indonesian datasets will follow. 
-If you have dataset or just any suggestion which datasets I could use to train, just let me know and I will try to 
-compile all datasets and to find hardware resources to train it. Thanks.
+A documentation and a better GPT2 Language Model trained with more indonesian datasets (indonesian corpus from 
+[OSCAR dataset](https://oscar-corpus.com/) is already in the plan) will follow. If you have dataset or just 
+any suggestion which datasets I could use to train, just let me know and I will try to compile all datasets 
+and to find hardware resources to train it. Thanks.
 
 ## GPT-2
 ### GPT2-small with indonesian Wikipedia
