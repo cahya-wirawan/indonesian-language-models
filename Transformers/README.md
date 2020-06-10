@@ -23,7 +23,8 @@ trained only with dataset from indonesian Wikipedia (around 522MB) for 5 hours. 
 The OSCAR Corpus for the deduplicated indonesian dataset is about 16GB. The training is on the plan.
 
 ### 3. GPT-2 XL with indonesian Wikipedia and OSCAR Corpus
-GPT-2 XL has 1.5B parameters. Ayo patungan buat nyewa TPU di Google Cloud buat training nya ;-)
+GPT-2 XL has 1.5B parameters. It's just too huge to train it on my few years old single NVidia 1080 GPU, so *ayo patungan 
+buat nyewa TPU di Google Cloud buat training nya ;-)*
 
 ### Usage
 #### Language Generation
