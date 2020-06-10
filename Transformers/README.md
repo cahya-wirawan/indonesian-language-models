@@ -1,9 +1,9 @@
 # Transformer based Language Models for Indonesian
 
 The transformer-based language model has been very popular since 2018, and there are already pre-trained models 
-in many different languages. Unfortunately there is still no indonesian language model available for public 
-(May 2020), maybe due to huge resources needed  for the training from scratch. We already have some Malaysian 
-language models, but Malay and Indonesian still differ, even though they both belong to the same Austronesian 
+in many different languages. Unfortunately there is still no transfomer indonesian language model available for public 
+(May 2020), maybe due to huge resources needed  for the training from scratch. There are already some Malaysian 
+language models, but Malaysian and Indonesian still differ, even though they both belong to the same Austronesian 
 language. For this reason, I try to train some language models myself and make them available to the public in 
 the hope that they can be useful for Indonesian NLP research.
 
