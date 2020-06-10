@@ -14,13 +14,16 @@ and to find hardware resources to train it. Thanks.
 
 ## GPT-2
 
-### 1. GPT2-small with indonesian Wikipedia
-This is my first attempt to create a small indonesian GPT2 Language Model. It was trained only with dataset from 
-indonesian Wikipedia (around 522MB) for 5 hours. It is hosted at huggingface:
+### 1. GPT-2 small with indonesian Wikipedia
+This is my first attempt to create a small indonesian GPT2 Language Model. GPT-2 small has 122M parameters. It was 
+trained only with dataset from indonesian Wikipedia (around 522MB) for 5 hours. It is hosted at huggingface:
 [gpt2-small-indonesian-522M](https://huggingface.co/cahya/gpt2-small-indonesian-522M).
 
-### 2. GPT2-small with indonesian Wikipedia and OSCAR Corpus
+### 2. GPT-2 small with indonesian Wikipedia and OSCAR Corpus
 The OSCAR Corpus for the deduplicated indonesian dataset is about 16GB. The training is on the plan.
+
+### 3. GPT-2 XL with indonesian Wikipedia and OSCAR Corpus
+GPT-2 XL has 1.5B parameters. Ayo patungan buat nyewa TPU di Google Cloud buat training nya ;-)
 
 ### Usage
 #### Language Generation
