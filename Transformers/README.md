@@ -19,6 +19,7 @@ indonesian Wikipedia (around 522MB) for 5 hours. It is hosted at huggingface:
 [gpt2-small-indonesian-522M](https://huggingface.co/cahya/gpt2-small-indonesian-522M). 
 #### Usage
 ##### Language Generation
+The Jupyter notebook: [gpt2-indonesian.ipynb](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/GPT2/gpt2-indonesian.ipynb)
 ```
 import torch
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer, GPT2LMHeadModel
