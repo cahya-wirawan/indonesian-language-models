@@ -97,6 +97,10 @@ We hope that the result could be improved a lot if we have much more dataset. As
 GPT-2 small model was pre-trained with 40GB of data (our indonesian Wikipedia dataset is only about 1.25% 
 of it).
 
+#### Text Classification
+
+#### Other Downstream Tasks
+
 ## T5
 
 ## BERT
