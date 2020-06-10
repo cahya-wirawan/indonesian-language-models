@@ -13,12 +13,17 @@ any suggestion which datasets I could use to train, just let me know and I will 
 and to find hardware resources to train it. Thanks.
 
 ## GPT-2
-### GPT2-small with indonesian Wikipedia
+
+### 1. GPT2-small with indonesian Wikipedia
 This is my first attempt to create a small indonesian GPT2 Language Model. It was trained only with dataset from 
 indonesian Wikipedia (around 522MB) for 5 hours. It is hosted at huggingface:
-[gpt2-small-indonesian-522M](https://huggingface.co/cahya/gpt2-small-indonesian-522M). 
-#### Usage
-##### Language Generation
+[gpt2-small-indonesian-522M](https://huggingface.co/cahya/gpt2-small-indonesian-522M).
+
+### 2. GPT2-small with indonesian Wikipedia and OSCAR Corpus
+The OSCAR Corpus for the deduplicated indonesian dataset is about 16GB. The training is on the plan.
+
+### Usage
+#### Language Generation
 The Jupyter notebook: [gpt2-indonesian.ipynb](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/GPT2/gpt2-indonesian.ipynb)
 ```
 import torch
