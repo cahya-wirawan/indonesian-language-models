@@ -26,8 +26,24 @@ The OSCAR Corpus for the deduplicated indonesian dataset is about 16GB. The trai
 GPT-2 XL has 1.5B parameters. It's just too huge to train it on my few years old single NVidia 1080 GPU, so *ayo patungan 
 buat nyewa TPU di Google Cloud buat training nya ;-)*
 
-### Usage
-#### Language Generation
+## T5
+
+## BERT
+### 1. BERT-base with indonesian Wikipedia
+[bert-base-indonesian-522M](https://huggingface.co/cahya/bert-base-indonesian-522M).
+
+## RoBERTa
+
+## XLM-RoBERTa
+
+## ELECTRA
+
+## LONGFORMER
+
+
+## Usage
+
+### Language Generation
 The Jupyter notebook: [gpt2-indonesian.ipynb](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/GPT2/gpt2-indonesian.ipynb)
 ```
 import torch
@@ -39,20 +55,20 @@ tokenizer = GPT2Tokenizer.from_pretrained("cahya/gpt2-small-indonesian-522M")
 model = GPT2LMHeadModel.from_pretrained("cahya/gpt2-small-indonesian-522M", pad_token_id=tokenizer.eos_token_id)
 
 input_sentences = [
+    'Alkisah pada jaman dahulu kala seekor babi tengah melintas di sebuah hutan belantara. Babi hutan itu sedang merasa kehausan di tengah panasnya terik matahari',
     'Cirebon adalah sebuah kota kecil di Jawa Barat dengan keindahannya yang melebihi kota Bandung',
     'Sriwijaya adalah salah satu kemaharajaan bahari yang pernah berdiri di pulau Sumatra dan banyak memberi pengaruh di Nusantara dengan daerah kekuasaan yang luas',
-    'Pantai berpasir putih ini cukup populer akhir-akhir ini karena menawarkan pemandangan yang begitu eksotis dan mempesona.',
-    'Perbukitan yang hijau dipenuhi dengan pepohonan tropis yang lengkap dengan area persawahan dan lembah'    
+    'Pantai berpasir putih ini cukup populer akhir-akhir ini karena menawarkan pemandangan yang begitu eksotis, indah dan mempesona',  
 ]
 
 # We set the seed manualy for reproducible result
-torch.manual_seed(3)
 for i, sentence in enumerate(input_sentences):
+    torch.manual_seed(1)
     input_ids = tokenizer.encode(sentence, return_tensors='pt')
     sample_output = model.generate(
         input_ids,
         do_sample=True, 
-        max_length=100, 
+        max_length=150, 
         top_k=50, 
         top_p=0.95
     )
@@ -64,55 +80,58 @@ Following ist the result
 ```
 Output:
 ----------------------------------------------------------------------------------------------------
-0: Cirebon adalah sebuah kota kecil di Jawa Barat dengan keindahannya yang melebihi kota Bandung, 
-Jawa Barat, Indonesia.  Kota ini didirikan pada tahun 1946 dengan sebutan "Calabo" (bahasa Indonesia: 
-"Balabo") (Bahasa Indonesia: "Badiwa") yang artinya kota ini memiliki sejarah yang panjang dan sedikit 
-yang lebih luas. Kota ini hanya terdapat di sekitar kota Bandung, tetapi di beberapa kota besar, 
-melainkan banyak kota di kota kecil saja seperti kota Bandung, dan beberapa kota di luar pulau
+0: Alkisah pada jaman dahulu kala seekor babi tengah melintas di sebuah hutan belantara. Babi hutan itu sedang 
+merasa kehausan di tengah panasnya terik matahari, karena itu ia pergi ke tengah hutan untuk mencari makanan. 
+Kemudian ia kembali ke istana dan bertemu dengan seekor musang bernama Sang Hyang (Himala). Sang Hyang pun 
+berjanji akan membiarkannya hidup sendirian. Sang Hyang pun pergi ke hutan untuk mencari makanannya. 
+Setelah sampai di tengah hutan, Sang Hyang bertanya kepada istrinya, “ Wahai para dewa, aku akan menemukan 
+makanan dan air yang dapat memenuhi kebutuhanmu. ” Sang Hyang kemudian menjelaskan mengapa sang dewi merasa 
+haus darah dan kembali tertidur. Sang dewi marah dan tak sadarkan diri saat terbangun, tetapi Sang Hyang 
+merasa ketakutan dan tertawa. Sang Hyang berteriak, ” "Bagaimana jika ia berada pada
 
 Output:
 ----------------------------------------------------------------------------------------------------
-1: Sriwijaya adalah salah satu kemaharajaan bahari yang pernah berdiri di pulau Sumatra dan banyak 
-memberi pengaruh di Nusantara dengan daerah kekuasaan yang luas pada tahun 1685 – 1177. Kerajaan ini
-pertama kali dijadikan salah satu kota yang sangat populer dan dibangun di Sulawesi Selatan.  Kerajaan 
-kerajaan ini dibentuk oleh Sultan Agung Agung, yaitu penguasa Kerajaan Sriwijaya tahun 1387 M 
-(tahun 1063 M), dan merupakan salah satu dari Kerajaan Sriwijaya yang memerintah selama Perang Dunia I. 
-Raja ini sendiri berasal dari Kerajaan Sumbawa dan kemudian menetap di Sumatra
+1: Cirebon adalah sebuah kota kecil di Jawa Barat dengan keindahannya yang melebihi kota Bandung, seperti 
+kota-kota di Jawa Barat yang lainnya. Di Kota Cirebon, kota ini menjadi pusat perdagangan antaretnis 
+antarabangsa Asia-Arab maupun Arab-Indonesia. Selain itu Kota Cirebon dikenal sebagai kota industri.
+Kota Cirebon memiliki banyak pelabuhan di sepanjang pantai utara Jawa dan Selat Sunda. Pelabuhan ini 
+menghubungkan kota Cirebon dengan kota-kota lain di pulau Jawa. Kota Cirebon juga memiliki pelabuhan 
+kapal laut di Selat Sunda, seperti Pelabuhan Banten dan Pelabuhan Lemahir di Laut Jawa. Pelabuhan Cirebon 
+terdapat di kota Cirebon yang menghubungkan Pelabuhan Cirebon dengan Pelabuhan Pelabuhan Kalibagor 
+(Pelabuhan Merak). Pelabuhan ini juga menjadi penghubung kapal terbesar untuk rute lintas samudera 
+(kapal barang di Jawa. Pelabuhan Cirebon dikenal akan tiga pelabuhan
 
 Output:
 ----------------------------------------------------------------------------------------------------
-2: Pantai berpasir putih ini cukup populer akhir-akhir ini karena menawarkan pemandangan yang begitu 
-eksotis dan mempesona. Pantai ini bisa kita bisa berenang dan bisa merasakan rasa dingin di udara kering.
-Pantai ini letaknya di bagian timur pantai. Pantai ini sangat indah. Pantai ini letaknya sangat sangat 
-sejuk dan sejuk dan sejuk. Pantai ini memiliki pemandangan yang indah. Pantai ini sangat sejuk dan baik,
-dapat diakses dengan baik dari kota kota-kota kecil maupun tempat-tempat tertentu seperti Pantai Gading.
-Pantai ini biasanya banyak ditemui di daerah kota lain
+2: Sriwijaya adalah salah satu kemaharajaan bahari yang pernah berdiri di pulau Sumatra dan banyak 
+memberi pengaruh di Nusantara dengan daerah kekuasaan yang luas, seperti kerajaan Melayu di pulau 
+Sumatra dan Kesultanan Malaka di pulau Sumatra.
+Pada awal abad ke-14 Sriwijaya membangun benteng pertamanya di pulau Bintan yang disebut " "Bataram Lama" ", 
+yang disebut " "bataram", yang kemudian digantikan oleh pemerintahan "Mataram Lama" ". "Bataram Lama" 
+menjadi ibukota " "tujuh belas kerajaan yang meliputi wilayah laut dan laut di seluruh Nusantara.
+Dari catatan-catatan China yang diketahui dengan pasti Sriwijaya disebut di Prasasti Batu Gelang 
+(atau "Batu Tulis"), Prasasti Padang Roco (nama lain dari Prasasti Batu Tulis), Prasasti Cindulungagung 
+dan Prasasti Batu Barabai ), dan Prasasti
 
 Output:
 ----------------------------------------------------------------------------------------------------
-3: Perbukitan yang hijau dipenuhi dengan pepohonan tropis yang lengkap dengan area persawahan dan lembah 
-yang indah, serta pegunungan tropis, di sebelah utara, sungai dengan puncak pegunungan. Pada umumnya, 
-kawasan hutan ini memiliki iklim tropis yang subur dan tropis. Rata-rata suhu yang rendah mencapai 1,2 %.
-Suhu rata-rata rata-rata 25,4 mm / tahun dengan suhu rata-rata 23,3 mm / tahun. Suhu rata-rata antara 
-5-4 hari dan rata-rata tahunan adalah 23-3 mm
+3: Pantai berpasir putih ini cukup populer akhir-akhir ini karena menawarkan pemandangan yang begitu 
+eksotis, indah dan mempesona, dengan pantai yang indah, seperti Pantai Pasir Putih, Pantai Pasir Putih, 
+dan Pantai Tanjung Kelabit. Keunikan Pantai berpasir putih ini adalah pantainya yang alami dan indah yang 
+ditumbuhi lumut-semut putih.
+Berada di pantai ini tak pernah terlepas dari aktivitas para nelayan karena letaknya yang strategis 
+di pinggir jalan raya Pantura. Namun di pantai ini tidak pernah sepi dan terdapat banyak pedagang yang 
+menjual hasil laut seperti kepiting, udang dll. Salah satunya adalah lobster air tawar "(kerang)" atau 
+udang. Banyak pengunjung pantai berpasir putih yang menjual makanan laut ini dan menjualnya ke penjual 
+ikan hias.
+
+Pantai pasir putih juga cukup potensial dikembangkan di sisi utara atau utara desa Pantai
 
 ```
 We hope that the result could be improved a lot if we have much more dataset. As comparison, The OpenAI 
 GPT-2 small model was pre-trained with 40GB of data (our indonesian Wikipedia dataset is only about 1.25% 
 of it).
 
-#### Text Classification
+### Text Classification
 
-#### Other Downstream Tasks
-
-## T5
-
-## BERT
-
-## RoBERTa
-
-## XLM-RoBERTa
-
-## ELECTRA
-
-## LONGFORMER
+### Other Downstream Tasks
