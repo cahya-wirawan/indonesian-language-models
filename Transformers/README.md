@@ -136,7 +136,7 @@ of it).
 We can use the language models for text classification. In this case, we will do it using BERT with 
 the dataset [Word Bahasa Indonesia Corpus and Parallel English Translation](https://github.com/cahya-wirawan/language-modeling/tree/master/data). 
 This is the same dataset we used to do [text classification using ULMFiT](https://github.com/cahya-wirawan/language-modeling/tree/master/indonesia).
-Following is the link to the [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-language-model.ipynb)
+Following is the link to the [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-language-model.ipynb).
 The first test achieved an accuracy of 0.9429 which is little bit lower than the accuracy I get from ULMFiT (0.9563). 
 This shows that ULMFiT is an excellent language model for text classification despite it's lower number of parameters 
 (40M) comparing to BERT-base (110M).
