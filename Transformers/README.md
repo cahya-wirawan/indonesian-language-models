@@ -33,6 +33,7 @@ buat nyewa TPU di Google Cloud buat training nya ;-)*
 [bert-base-indonesian-522M](https://huggingface.co/cahya/bert-base-indonesian-522M).
 
 ## RoBERTa
+[roberta-base-indonesian-522M](https://huggingface.co/cahya/roberta-base-indonesian-522M).
 
 ## XLM-RoBERTa
 
