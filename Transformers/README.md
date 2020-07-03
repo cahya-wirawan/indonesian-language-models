@@ -36,12 +36,15 @@ buat nyewa TPU di Google Cloud buat training nya ;-)*
 ### 1. RoBERTa-base with indonesian Wikipedia
 [roberta-base-indonesian-522M](https://huggingface.co/cahya/roberta-base-indonesian-522M).
 
-## XLM-RoBERTa
+## Reformer
 
-## ELECTRA
+## BART
 
 ## LONGFORMER
 
+## XLM-RoBERTa
+
+## ELECTRA
 
 ## Usage
 
