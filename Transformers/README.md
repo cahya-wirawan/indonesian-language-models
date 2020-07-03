@@ -26,8 +26,6 @@ The OSCAR Corpus for the deduplicated indonesian dataset is about 16GB. The trai
 GPT-2 XL has 1.5B parameters. It's just too huge to train it on my few years old single NVidia 1080 GPU, so *ayo patungan 
 buat nyewa TPU di Google Cloud buat training nya ;-)*
 
-## T5
-
 ## BERT
 ### 1. BERT-base with indonesian Wikipedia
 [bert-base-indonesian-522M](https://huggingface.co/cahya/bert-base-indonesian-522M).
@@ -42,9 +40,14 @@ buat nyewa TPU di Google Cloud buat training nya ;-)*
 
 ## LONGFORMER
 
+## T5
+
+
 ## XLM-RoBERTa
 
 ## ELECTRA
+
+## Linformer
 
 ## Usage
 
