@@ -83,7 +83,7 @@ for i, sentence in enumerate(input_sentences):
     print("Output:\n" + 100 * '-')
     print("{}: {}".format(i, tokenizer.decode(sample_output[0], skip_special_tokens=True)))
 ```
-Following ist the result
+Following is the result
 
 ```
 Output:
