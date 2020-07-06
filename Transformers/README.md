@@ -150,6 +150,8 @@ using BERT. The first test achieved an accuracy of 0.9429 which is little bit lo
 This shows that ULMFiT is an excellent language model for text classification despite it's lower number of parameters 
 (40M) comparing to BERT-base (110M).
 - A [Simple Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-text-classification-simple.ipynb)
-using BERT and [Simple Transformers](https://simpletransformers.ai/)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+- A [Simple Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-text-classification-simple-news.ipynb)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/) but using [indonesian news dataset](https://github.com/andreaschandra/indonesian-news/) 
  
 ### Other Downstream Tasks
