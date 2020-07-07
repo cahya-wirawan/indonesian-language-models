@@ -52,7 +52,7 @@ buat nyewa TPU di Google Cloud buat training nya ;-)*
 ## Usage
 
 ### Language Generation
-The Jupyter notebook: [gpt2-indonesian.ipynb](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/GPT2/gpt2-indonesian.ipynb)
+The Jupyter notebook: [text-generation.ipynb](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/Tasks/text-generation.ipynb)
 ```
 import torch
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer, GPT2LMHeadModel
@@ -145,13 +145,13 @@ We can use the MLM language models such as BERT or RoBERTa for text classificati
 [Word Bahasa Indonesia Corpus and Parallel English Translation](https://github.com/cahya-wirawan/language-modeling/tree/master/data). 
 This is the same dataset we used for [text classification using ULMFiT](https://github.com/cahya-wirawan/language-modeling/tree/master/indonesia).
 
-- A detail [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-text-classification.ipynb)
+- A detail [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/Tasks/text-classification-detail-panl.ipynb)
 using BERT. The first test achieved an accuracy of 0.9429 which is little bit lower than the accuracy I get from ULMFiT (0.9563). 
 This shows that ULMFiT is an excellent language model for text classification despite it's lower number of parameters 
 (40M) comparing to BERT-base (110M).
-- A [Simple Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-text-classification-simple.ipynb)
+- A simple [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/Tasks/text-classification-simple-panl.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
-- A [Simple Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/BERT/bert-indonesian-text-classification-simple-news.ipynb)
+- A simple [Text Classification's Notebook](https://github.com/cahya-wirawan/language-modeling/blob/master/Transformers/Tasks/text-classification-simple-news.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/) but using [indonesian news dataset](https://github.com/andreaschandra/indonesian-news/) 
  
 ### Other Downstream Tasks
