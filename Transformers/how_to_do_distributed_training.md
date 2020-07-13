@@ -46,9 +46,9 @@ configuration file for BERT base model and save it in the directory <i>output_di
 }
 ```
 For any other models configuration, you can check some examples from [huggingface's model collection](https://huggingface.co/models)  
-For example, if you want to train "gpt2-xl", you can download its config.json using wget command line:
+For example, if you want to train "bert-base-uncased", you can download its config.json using wget command line:
 ```
-wget https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-xl-config.json -O $output_dir/config.json
+wget https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json -O $output_dir/config.json
 ```
 and change its values appropriately.
 
