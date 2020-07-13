@@ -1,8 +1,8 @@
 # How to train a language model with multiple GPUs
 
 Following is just a short tutorial how to train a language model from scratch or fine tuning using 
-Pytorch distributed training module. BERT language model is used as example for this tutorial. I use Transfomers 
-version 3.02 for this tutorial. 
+Pytorch distributed training module. BERT language model and Transformers 
+version 3.02 are used as example for this tutorial.
 
 ## Tokenizing the dataset
 Before we start with the training, we have to tokenize the dataset using the huggingface tokenizer. This is only 
