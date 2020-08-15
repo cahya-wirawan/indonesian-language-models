@@ -68,12 +68,11 @@ output = model(encoded_input)
 
 ## Training data
 
-Describe the data you used to train the model.
-If you initialized it with pre-trained weights, add a link to the pre-trained model card or repository with description of the pre-training data.
+This model was pretrained with 522MB of indonesian Wikipedia.
+The texts are lowercased and tokenized using WordPiece and a vocabulary size of 32,000. The inputs of the model are 
+then of the form:
 
-## Training procedure
-
-Preprocessing, hardware used, hyperparameters...
+```[CLS] Sentence A [SEP] Sentence B [SEP]```
 
 ## Eval results
 
