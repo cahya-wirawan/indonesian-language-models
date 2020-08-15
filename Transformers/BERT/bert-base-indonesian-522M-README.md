@@ -8,8 +8,8 @@ tags:
 license: "mit"
 datasets:
   - Indonesian Wikipedia
-metrics:
-  - array of metric identifiers
+widget:
+  - text: "Ibu ku sedang bekerja [MASK] supermarket."
 ---
 
 # Indonesian BERT base model (uncased) 
