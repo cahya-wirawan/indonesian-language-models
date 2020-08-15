@@ -20,7 +20,7 @@ model is uncased: it does not make a difference between indonesia and Indonesia.
 
 ## Intended uses & limitations
 
-#### How to use
+### How to use
 You can use this model directly with a pipeline for masked language modeling:
 ```python
 >>> from transformers import pipeline
@@ -74,9 +74,7 @@ then of the form:
 
 ```[CLS] Sentence A [SEP] Sentence B [SEP]```
 
-## Eval results
-
-### BibTeX entry and citation info
+## BibTeX entry and citation info
 
 ```bibtex
 @inproceedings{...,
