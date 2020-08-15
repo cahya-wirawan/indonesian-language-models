@@ -2,17 +2,17 @@
 language: "id"
 thumbnail: ""
 tags:
-- array
-- of
-- tags
+  - array
+  - of
+  - tags
 license: "mit"
 datasets:
-- Indonesian Wikipedia
+  - Indonesian Wikipedia
 metrics:
-- array of metric identifiers
+  - array of metric identifiers
 ---
 
-# Model name
+# Indonesian BERT base model (uncased) 
 
 ## Model description
 It is BERT-base model pre-trained with indonesian Wikipedia using a masked language modeling (MLM) objective. This 
