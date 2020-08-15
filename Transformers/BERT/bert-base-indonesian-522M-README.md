@@ -1,10 +1,6 @@
 ---
 language: "id"
 thumbnail: ""
-tags:
-  - array
-  - of
-  - tags
 license: "mit"
 datasets:
   - Indonesian Wikipedia
