@@ -13,6 +13,9 @@ widget:
 It is BERT-base model pre-trained with indonesian Wikipedia using a masked language modeling (MLM) objective. This 
 model is uncased: it does not make a difference between indonesia and Indonesia.
 
+This is one of several other language models that have been pre-trained with indonesian datasets. More detail about 
+it is available at [indonesian language models](https://github.com/cahya-wirawan/indonesian-language-models)
+
 ## Intended uses & limitations
 
 ### How to use
