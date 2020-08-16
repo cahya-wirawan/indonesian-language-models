@@ -14,7 +14,7 @@ It is BERT-base model pre-trained with indonesian Wikipedia using a masked langu
 model is uncased: it does not make a difference between indonesia and Indonesia.
 
 This is one of several other language models that have been pre-trained with indonesian datasets. More detail about 
-it is available at [indonesian language models](https://github.com/cahya-wirawan/indonesian-language-models)
+its usage on downstream tasks (text classification, text generation, etc) is available at [Transformer based Indonesian Language Models](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers)
 
 ## Intended uses & limitations
 
@@ -66,7 +66,7 @@ output = model(encoded_input)
 
 ## Training data
 
-This model was pretrained with 522MB of indonesian Wikipedia.
+This model was pre-trained with 522MB of indonesian Wikipedia.
 The texts are lowercased and tokenized using WordPiece and a vocabulary size of 32,000. The inputs of the model are 
 then of the form:
 

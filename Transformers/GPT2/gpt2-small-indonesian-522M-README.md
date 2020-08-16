@@ -13,6 +13,9 @@ widget:
 It is GPT2-small model pre-trained with indonesian Wikipedia using a causal language modeling (CLM) objective. This 
 model is uncased: it does not make a difference between indonesia and Indonesia.
 
+This is one of several other language models that have been pre-trained with indonesian datasets. More detail about 
+its usage on downstream tasks (text classification, text generation, etc) is available at [Transformer based Indonesian Language Models](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers)
+
 ## Intended uses & limitations
 
 ### How to use
@@ -56,7 +59,7 @@ output = model(encoded_input)
 
 ## Training data
 
-This model was pretrained with 522MB of indonesian Wikipedia.
+This model was pre-trained with 522MB of indonesian Wikipedia.
 The texts are tokenized using a byte-level version of Byte Pair Encoding (BPE) (for unicode characters) and 
 a vocabulary size of 52,000. The inputs are sequences of 128 consecutive tokens.
 
