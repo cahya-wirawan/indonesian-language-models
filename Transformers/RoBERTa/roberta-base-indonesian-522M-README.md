@@ -3,9 +3,10 @@ language: "id"
 thumbnail: ""
 license: "mit"
 datasets:
-  - Indonesian Wikipedia
+- Indonesian Wikipedia
+
 widget:
-  - text: "Ibu ku sedang bekerja <mask> supermarket."
+- text: "Ibu ku sedang bekerja <mask> supermarket."
 ---
 
 # Indonesian RoBERTa base model (uncased) 
