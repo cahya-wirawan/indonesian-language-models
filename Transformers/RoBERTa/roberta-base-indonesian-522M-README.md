@@ -1,6 +1,5 @@
 ---
 language: "id"
-thumbnail: ""
 license: "mit"
 datasets:
 - Indonesian Wikipedia
@@ -20,24 +19,9 @@ model is uncased: it does not make a difference between indonesia and Indonesia.
 You can use this model directly with a pipeline for masked language modeling:
 ```python
 >>> from transformers import pipeline
->>> unmasker = pipeline('fill-mask', model='cahya/bert-base-indonesian-522M')
+>>> unmasker = pipeline('fill-mask', model='cahya/roberta-base-indonesian-522M')
 >>> unmasker("Ibu ku sedang bekerja <mask> supermarket")
 
-[{'sequence': '<s> ibu ku sedang bekerja di supermarket </s>',
-  'score': 0.7983310222625732,
-  'token': 1495},
- {'sequence': '<s> ibu ku sedang bekerja. supermarket </s>',
-  'score': 0.090003103017807,
-  'token': 17},
- {'sequence': '<s> ibu ku sedang bekerja sebagai supermarket </s>',
-  'score': 0.025469014421105385,
-  'token': 1600},
- {'sequence': '<s> ibu ku sedang bekerja dengan supermarket </s>',
-  'score': 0.017966199666261673,
-  'token': 1555},
- {'sequence': '<s> ibu ku sedang bekerja untuk supermarket </s>',
-  'score': 0.016971781849861145,
-  'token': 1572}]
 ```
 Here is how to use this model to get the features of a given text in PyTorch:
 ```python

@@ -1,11 +1,10 @@
 ---
 language: "id"
-thumbnail: ""
 license: "mit"
 datasets:
-  - Indonesian Wikipedia
+- Indonesian Wikipedia
 widget:
-  - text: "Ibu ku sedang bekerja [MASK] supermarket."
+- text: "Ibu ku sedang bekerja [MASK] supermarket."
 ---
 
 # Indonesian BERT base model (uncased) 

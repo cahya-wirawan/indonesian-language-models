@@ -1,6 +1,5 @@
 ---
 language: "id"
-thumbnail: ""
 license: "mit"
 datasets:
 - Indonesian Wikipedia
