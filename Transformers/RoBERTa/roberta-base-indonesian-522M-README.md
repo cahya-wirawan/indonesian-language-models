@@ -4,7 +4,6 @@ thumbnail: ""
 license: "mit"
 datasets:
 - Indonesian Wikipedia
-
 widget:
 - text: "Ibu ku sedang bekerja <mask> supermarket."
 ---
@@ -55,7 +54,7 @@ and in Tensorflow:
 ```python
 from transformers import RobertaTokenizer, TFRobertaModel
 
-model_name='cahya/bert-base-indonesian-522M'
+model_name='cahya/roberta-base-indonesian-522M'
 tokenizer = RobertaTokenizer.from_pretrained(model_name)
 model = TFRobertaModel.from_pretrained(model_name)
 text = "Silakan diganti dengan text apa saja."
