@@ -5,7 +5,7 @@ license: "mit"
 datasets:
 - Indonesian Wikipedia
 widget:
-- text: "Ibu ku sedang bekerja <mask> supermarket."
+- text: "Pulau Dewata sering dikunjungi"
 ---
 
 # Indonesian GPT2 small model 
