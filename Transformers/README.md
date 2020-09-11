@@ -139,7 +139,7 @@ Pantai pasir putih juga cukup potensial dikembangkan di sisi utara atau utara de
 We hope that the result could be improved a lot if we have much more dataset. As comparison, The OpenAI 
 GPT-2 small model was pre-trained with 40GB of data (our indonesian Wikipedia dataset is only about 1.25% 
 of it).
-
+- [Text Generation Demo](https://huggingface.co/cahya/gpt2-small-indonesian-522M)
 ### Text Classification
 We can use the MLM language models such as BERT or RoBERTa for text classification. We use the dataset 
 [Word Bahasa Indonesia Corpus and Parallel English Translation](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/data). 
@@ -159,12 +159,14 @@ using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/) 
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 - A [Simple Usage Notebook for Named Entity Recognition](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/named-entity-recognition-simple-usage.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+- [NER Demo](https://huggingface.co/cahya/bert-base-indonesian-NER)
 
 ### Question Answering
 - A [Simple Training Notebook for Question Answering](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-training.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 - A [Simple Usage Notebook for Question Answering](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-usage.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+- [Question and Answering Demo](https://huggingface.co/cahya/bert-base-indonesian-tydiqa)
 
 ### Abstractive Summarization
 We will use BART, T5 or Pegasus for Summarization.
