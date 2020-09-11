@@ -153,5 +153,18 @@ This shows that ULMFiT is an excellent language model for text classification de
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 - A simple [Text Classification's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/text-classification-simple-news.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/) but using [indonesian news dataset](https://github.com/andreaschandra/indonesian-news/) 
+
+### Named Entity Recognition
+- A simple training of [Named Entity Recognition's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/named-entity-recognition-simple-training.ipynb)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+
+### Question Answering
+- A simple training of [Question Answering's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-training.ipynb)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+- A simple usage of [Question Answering's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-usage.ipynb)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+
+### Abstractive Summarization
+We will use BART, T5 or Pegasus for Summarization.
  
 ### Other Downstream Tasks
