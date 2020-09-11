@@ -155,13 +155,15 @@ using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/) but using [indonesian news dataset](https://github.com/andreaschandra/indonesian-news/) 
 
 ### Named Entity Recognition
-- A simple training of [Named Entity Recognition's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/named-entity-recognition-simple-training.ipynb)
+- A [Simple Training Notebook for Named Entity Recognition](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/named-entity-recognition-simple-training.ipynb)
+using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
+- A [Simple Usage Notebook for Named Entity Recognition](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/named-entity-recognition-simple-usage.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 
 ### Question Answering
-- A simple training of [Question Answering's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-training.ipynb)
+- A [Simple Training Notebook for Question Answering](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-training.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
-- A simple usage of [Question Answering's Notebook](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-usage.ipynb)
+- A [Simple Usage Notebook for Question Answering](https://github.com/cahya-wirawan/indonesian-language-models/blob/master/Transformers/Tasks/question-answering-simple-usage.ipynb)
 using BERT or RoBERTa and [Simple Transformers](https://simpletransformers.ai/)
 
 ### Abstractive Summarization
