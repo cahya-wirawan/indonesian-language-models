@@ -26,5 +26,7 @@ Ashish Vaswani et al. proposed Transfomer in the paper [Attention Is All You Nee
 It is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies 
 with ease.
 
-The author built several [transformer-based language models for Indonesian](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers) 
+At the time of writing (March 2021), there are already more than 50 different types of transformer-based language 
+models, such as BERT, GPT2, Longformer, or MT5. The author built several 
+[Transformer-based language models for Indonesian](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers) 
 and hosted them in the [Huggingfaces model hub](https://huggingface.co/cahya).
