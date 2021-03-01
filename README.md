@@ -28,5 +28,6 @@ with ease.
 
 At the time of writing (March 2021), there are already more than 50 different types of transformer-based language 
 models, such as BERT, GPT2, Longformer, or MT5. The author built several 
-[Transformer-based language models for Indonesian](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers) 
-and hosted them in the [Huggingfaces model hub](https://huggingface.co/cahya).
+[Indonesian transformer-based language models](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers) 
+using [Huggingface Transformers Library](https://github.com/huggingface/transformers) and hosted them in the 
+[Huggingfaces model hub](https://huggingface.co/cahya).
