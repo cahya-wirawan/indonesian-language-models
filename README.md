@@ -22,3 +22,9 @@ has been trained as part of the author's project while learning [FastAI](https:/
 of **27.67** on Indonesian Wikipedia.
 
 ## Transformers
+Ashish Vaswani et al. proposed Transfomer in the paper [Attention Is All You Need](https://arxiv.org/abs/1706.03762). 
+It is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies 
+with ease.
+
+The author built several [transformer-based language models for Indonesian](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/Transformers) 
+and hosted them in the [Huggingfaces model hub](https://huggingface.co/cahya).
