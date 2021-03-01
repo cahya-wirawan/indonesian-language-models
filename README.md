@@ -1,4 +1,4 @@
-# Indonesian Language Model
+# Indonesian Language Models
 
 The language model is a probability distribution over word sequences used to predict the next word based on previous 
 sentences. This ability makes the language model the core component of modern natural language processing. We use it 
