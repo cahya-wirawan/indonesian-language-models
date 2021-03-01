@@ -10,14 +10,14 @@ Facebook RoBERTa, or OpenAI GPT3, with its massive number of parameters. Most of
 language models in English and some other European languages. Other countries with low resource languages have big 
 challenges to catch up on this technology race.
 
-Therefore I try to build some language models for Indonesian, started with ULMFiT in 2018. The first language model 
-has been only trained with  Indonesian Wikipedia, which is very small compared to other datasets used to train 
-the English language model.
+Therefore the author tries to build some language models for Indonesian, started with ULMFiT in 2018. The first 
+language model has been only trained with  Indonesian Wikipedia, which is very small compared to other datasets used 
+to train the English language model.
 
 
 ## Universal Language Model Fine-tuning (ULMFiT)
 Jeremy Howard and Sebastian Ruder proposed [ULMFiT](https://arxiv.org/abs/1801.06146) in early 2018 as a novel method for 
-fine-tuning language models for inductive transfer learning. The language model [ULMFiT for Indonesian](https://github.com/cahya-wirawan/language-modeling/tree/master/indonesia) 
+fine-tuning language models for inductive transfer learning. The language model [ULMFiT for Indonesian](https://github.com/cahya-wirawan/indonesian-language-models/tree/master/ULMFiT) 
 has been trained as part of the author's project while learning [FastAI](https://www.fast.ai). It achieved a perplexity 
 of **27.67** on Indonesian Wikipedia.
 
