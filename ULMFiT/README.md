@@ -1,4 +1,4 @@
-# Indonesian Language Modeling
+# Universal Language Model Fine-tuning (ULMFiT) for Indonesian
 A state-of-the-art language modeling with perplexity of **27.67** on Indonesian Wikipedia has been achieved. It is 
 created with [ULMFit](https://arxiv.org/abs/1801.06146) implementation from 
 [fast.ai](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html).
