@@ -36,8 +36,8 @@ the indonesian part are used for this purpose. The corpus has 4 categories:
 Currently, there is no comparable text classification's result using this dataset, therefore
 a [performance test](https://github.com/cahya-wirawan/language-modeling/blob/master/indonesia/ulmfit_classification_comparison.ipynb) 
 with various other algorithms, such as Naive Bayes (NB), Linear Classifier (LC), Support Vector Machine (SVM),
-Random Forest (RF), Extreme Gradient Boosting(Xgb), Convolition Neural Network (CNN), LSTM or GRU, 
-has been performed. Following is the test result:
+Random Forest (RF), Extreme Gradient Boosting (Xgb), Convolutional Neural Network (CNN), LSTM or GRU, 
+has been performed following the test result:
 
 | Name                   | Accuracy |
 | ---------------------- |---------:| 
@@ -68,7 +68,7 @@ Notes:
 * All Neural Network models except ULMFiT use FastText's embedding vector
 * (1) trained using the fasttext's command line: 
      "_fasttext supervised -input  bppt_panl_train.txt -output model_bppt -wordNgrams 2 -lr 1.0  -epoch 50_". More epochs 
-     didn't help
+     didn't help.
 
 It shows that text classification using ULMFit outperforms other algorithms using classical machine learning 
 or other neural network models.
